@@ -9,10 +9,12 @@ char* buffer_up(int* counter, char* result, char value);
 
 int main() {
     char *result;
+
     result = getInteger();
-    fprintf(stdout, "You entered: %s\n", result);
-    if (result != NULL)
+    if (result != NULL) {
+        fprintf(stdout, "You entered: %s\n", result);
         free(result);
+    }
 
     return 0;
 }
@@ -42,7 +44,7 @@ char* getInteger() {
         }
     }
 
-    if (counter == 2 && (result[0] == '-' || result[0] == '+') ) {
+    if (counter == 2 && (result[0] == '-' || result[0] == '+')) {
         free(result);
         bye();
     }
