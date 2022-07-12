@@ -1,0 +1,5 @@
+python3 ./cpplint.py --extensions=c main.c
+cppcheck --enable=all --inconclusive --suppress=missingIncludeSystem ./a.out
+gcc -ggdb3 -Wall -Wextra -Werror main.c
+leaks --atExit -- ./a.out
+valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind-out.txt ./a.out
