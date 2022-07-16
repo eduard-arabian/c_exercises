@@ -27,6 +27,9 @@ void_casting ::
 armstrong_number ::
 	$(CC) $(CFLAGS) armstrong_number.c -o armstrong_number
 
+resistor_color ::
+	$(CC) $(CFLAGS) -c resistor_color.c
+
 lint ::
 	@python3 ./cpplint.py --extensions=c *.c
 	@python3 ./cpplint.py --extensions=h *.h
