@@ -1,12 +1,13 @@
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
 
-all :: integer_checker malloc_with_size void_casting prime_number
+all :: integer_checker malloc_with_size void_casting prime_number armstrong_number
 
 rebuild :: clean all
 
 clean ::
 	rm *.o integer_checker malloc_with_size prime_number void_casting
+	rm armstrong_number
 
 integer ::
 	$(CC) $(CFLAGS) -c integer.c
@@ -22,6 +23,9 @@ prime_number :: integer
 
 void_casting ::
 	$(CC) $(CFLAGS) void_casting.c -o void_casting
+
+armstrong_number ::
+	$(CC) $(CFLAGS) armstrong_number.c -o armstrong_number
 
 lint ::
 	@python3 ./cpplint.py --extensions=c *.c
