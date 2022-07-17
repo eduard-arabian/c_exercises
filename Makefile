@@ -27,7 +27,7 @@ isogram ::
 	@$(CC) $(CFLAGS) -c isogram.c
 
 isotest :: isogram
-	@$(CC) $(CFLAGS) isogram.o isotest.c -o isotest.exe
+	@$(CC) $(CFLAGS) isogram.o isotest.c -o isotest.$(EXECUTABLE)
 
 integer ::
 	@$(CC) $(CFLAGS) -c integer.c
