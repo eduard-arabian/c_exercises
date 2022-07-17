@@ -11,9 +11,13 @@ char* getInteger() {
     int counter = 1;
     char *result = NULL;
 
-    fscanf(stdin, "%c", &value) == 1 && (('0' <= value && value <= '9')
-        || value == '-' || value == '+') && value != '\n' ?
-        result = buffer_up(&counter, result, value) : bye();
+    if (fscanf(stdin, "%c", &value) == 1
+        && (('0' <= value && value <= '9')
+        || value == '-' || value == '+')
+        && value != '\n')
+        result = buffer_up(&counter, result, value);
+    else
+        bye();
 
     while (fscanf(stdin, "%c", &value) == 1 && value != '\n') {
         if (value < '0' || '9' < value) {
