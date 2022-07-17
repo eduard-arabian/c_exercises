@@ -23,6 +23,12 @@ rebuild :: clean all
 clean ::
 	$(REMOVE) *.o *.$(EXECUTABLE)
 
+isogram ::
+	@$(CC) $(CFLAGS) -c isogram.c
+
+isotest :: isogram
+	@$(CC) $(CFLAGS) isogram.o isotest.c -o isotest.exe
+
 integer ::
 	@$(CC) $(CFLAGS) -c integer.c
 
