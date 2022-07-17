@@ -3,6 +3,16 @@
 #include <stdbool.h>
 #include <stdio.h>
 
+bool is_armstrong_number(int candidate);
+
+int main() {
+    int number;
+
+    scanf("%d", &number);
+    printf("%d", is_armstrong_number(number));
+
+    return 0;
+}
 
 bool is_armstrong_number(int candidate) {
     int armstrong = candidate;
@@ -24,13 +34,4 @@ bool is_armstrong_number(int candidate) {
     }
 
     return (candidate == armstrong);
-}
-
-int main() {
-    int number;
-
-    scanf("%d", &number);
-    printf("%d", is_armstrong_number(number));
-
-    return 0;
 }
