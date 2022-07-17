@@ -16,7 +16,7 @@ else
 	REMOVE = rm -rf
 endif
 
-all :: integer_checker malloc_with_size void_casting prime_number armstrong_number
+all :: integer_checker malloc_with_size void_casting prime_number armstrong_number isotest
 
 rebuild :: clean all
 
