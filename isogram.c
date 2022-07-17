@@ -2,7 +2,6 @@
 #include "isogram.h"
 
 bool is_isogram(const char phrase[]) {
-    int alpha[26] = { 0 };
     int i = 0;
     bool result;
 
@@ -10,6 +9,7 @@ bool is_isogram(const char phrase[]) {
         result = false;
     } else {
         result = true;
+        int alpha[26] = { 0 };
         while (phrase[i] != '\0') {
             if (phrase == NULL) {
                 result = false;
