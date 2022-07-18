@@ -16,12 +16,22 @@ else
 	REMOVE = rm -rf
 endif
 
-all :: integer_checker malloc_with_size void_casting prime_number armstrong_number isotest hamtest gratest
+all :: p1 p2
+
+p1 :: integer_checker malloc_with_size void_casting prime_number armstrong_number isotest hamtest gratest
+
+p2 :: test_difference_of_squares
 
 rebuild :: clean all
 
 clean ::
 	$(REMOVE) *.o *.$(EXECUTABLE)
+
+difference_of_squares ::
+	@$(CC) $(CFLAGS) -c difference_of_squares.c -c test-framework/unity.c
+
+test_difference_of_squares :: difference_of_squares
+	@$(CC) $(CFLAGS) unity.o difference_of_squares.o test_difference_of_squares.c -o test_difference_of_squares.$(EXECUTABLE)
 
 grains ::
 	@$(CC) $(CFLAGS) -c grains.c
