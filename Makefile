@@ -16,12 +16,18 @@ else
 	REMOVE = rm -rf
 endif
 
-all :: integer_checker malloc_with_size void_casting prime_number armstrong_number isotest hamtest
+all :: integer_checker malloc_with_size void_casting prime_number armstrong_number isotest hamtest gratest
 
 rebuild :: clean all
 
 clean ::
 	$(REMOVE) *.o *.$(EXECUTABLE)
+
+grains ::
+	@$(CC) $(CFLAGS) -c grains.c
+
+gratest :: grains
+	@$(CC) $(CFLAGS) grains.o gratest.c -o gratest.$(EXECUTABLE)
 
 hamming ::
 	@$(CC) $(CFLAGS) -c hamming.c
