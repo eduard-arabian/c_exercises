@@ -1,7 +1,7 @@
 #include "difference_of_squares.h"
 
 unsigned int sum_of_squares(unsigned int number) {
-   unsigned int result = 0;
+    unsigned int result = 0;
 
     for (unsigned int i = 1; i <= number; i++) {
         result += i * i;
