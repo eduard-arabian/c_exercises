@@ -1,6 +1,5 @@
 #include "grade_school.h"
 #include <string.h>
-#include <stdio.h>
 
 void swap_students(roster_t *roster, size_t index) {
     student_t tmp;

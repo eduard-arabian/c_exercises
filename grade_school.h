@@ -1,7 +1,6 @@
 #ifndef GRADE_SCHOOL_H
 #define GRADE_SCHOOL_H
 
-#include <stddef.h>
 #include <stdint.h>
 
 #define MAX_NAME_LENGTH 20
