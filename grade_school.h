@@ -1,5 +1,5 @@
-#ifndef GRADE_SCHOOL_H
-#define GRADE_SCHOOL_H
+#ifndef GRADE_SCHOOL_H_
+#define GRADE_SCHOOL_H_
 
 #include <stdint.h>
 
@@ -23,4 +23,4 @@ void init_roster(roster_t *roster);
 int add_student(roster_t *roster, char name[], uint8_t grade);
 roster_t get_grade(roster_t *roster, uint8_t grade);
 
-#endif
+#endif  // GRADE_SCHOOL_H_
