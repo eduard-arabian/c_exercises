@@ -20,7 +20,7 @@ all :: p1 p2
 
 p1 :: integer_checker malloc_with_size void_casting prime_number armstrong_number isotest hamtest gratest
 
-p2 :: test_difference_of_squares test_square_root
+p2 :: test_difference_of_squares test_square_root test_grade_school
 
 rebuild :: clean all
 
@@ -29,6 +29,12 @@ clean ::
 
 unity ::
 	@$(CC) $(CFLAGS) -c test-framework/unity.c
+
+grade_school ::
+	@$(CC) $(CFLAGS) -c grade_school.c
+
+test_grade_school :: unity grade_school
+	@$(CC) $(CFLAGS) unity.o grade_school.o test_grade_school.c -o test_grade_school.$(EXECUTABLE)
 
 square_root ::
 	@$(CC) $(CFLAGS) -c square_root.c
