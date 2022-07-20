@@ -45,8 +45,8 @@ int add_student(roster_t *roster, char name[], uint8_t grade) {
         roster->students[roster->count].grade = grade;
         strcpy(roster->students[roster->count].name, name);
         roster->count++;
-        check = 1;
         sort_grades(roster);
+        check++;
     }
 
     return check;
@@ -56,13 +56,13 @@ roster_t get_grade(roster_t *roster, uint8_t grade) {
     roster_t graded;
 
     init_roster(&graded);
-    for (size_t i = 0; i < roster->count; i++) {
+    for (size_t i = 0; i < roster->count; i++)
         if (roster->students[i].grade == grade) {
             graded.students[graded.count].grade = roster->students[i].grade;
             strcpy(graded.students[graded.count].name, roster->students[i].name);
             graded.count++;
         }
-    }
+
     if (graded.count)
         sort_grades(&graded);
 
