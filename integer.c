@@ -8,10 +8,16 @@ void bye() {
 
 int getIntegerLength(char *number) {
     char *ptr = number;
+    int result;
 
     while (ptr != NULL && *(ptr++) != '\0') {}
 
-    return (--ptr - number);    
+    if (ptr != NULL)
+        result = (int)(ptr - number - 1);
+    else
+        result = -1;
+
+    return result;
 }
 
 char* getInteger() {
