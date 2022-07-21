@@ -30,6 +30,9 @@ clean ::
 unity ::
 	@$(CC) $(CFLAGS) -c test-framework/unity.c
 
+palindrome_number :: integer
+	@$(CC) $(CFLAGS) integer.o palindrome_number.c -o palindrome_number.$(EXECUTABLE)
+
 grade_school ::
 	@$(CC) $(CFLAGS) -c grade_school.c
 

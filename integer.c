@@ -6,6 +6,14 @@ void bye() {
     exit(1);
 }
 
+int getIntegerLength(char *number) {
+    char *ptr = number;
+
+    while (ptr != NULL && *(ptr++) != '\0') {}
+
+    return (--ptr - number);    
+}
+
 char* getInteger() {
     char value;
     int counter = 1;

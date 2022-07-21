@@ -7,6 +7,7 @@
 #include <stdlib.h>
 
 void bye();
+int getIntegerLength(char *number);
 char* getInteger();
 char* buffer_up(int* counter, char* result, char value);
 
