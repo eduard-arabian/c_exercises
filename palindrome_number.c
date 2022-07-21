@@ -21,27 +21,17 @@ int main() {
         int check = 1;
         int length = getIntegerLength(number);
 
-        while (check && index++ < length / 2)
+        while (check && index < length / 2) {
             if (number[index] != number[length - index - 1])
                 check = 0;
+            else
+                index++;
+        }
 
         fprintf(stdout, "This is%sa palindrome number\n", check ? " ": " not ");
 
         free(number);
     }
-
-/*
-    if (!fscanf(stdin, "%d", &number) || getchar() != '\n') {
-        fprintf(stderr, "n/a\n");
-        bye();
-    } else {
-        int check = 0;
-        for (int i = 1; i <= number; i++)
-            if (!(number % i) && ++check > 2)
-                break;
-        printf("This is%sa prime number\n", check > 2 ? " not ": " ");
-    }
-*/
 
     return 0;
 }
