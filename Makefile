@@ -90,6 +90,9 @@ armstrong_number ::
 resistor_color ::
 	@$(CC) $(CFLAGS) -c resistor_color.c
 
+valgrind ::
+	@echo 'valgrind --leak-check=full -s ./'
+
 lint ::
 	@python3 ./cpplint.py --extensions=c *.c
 	@python3 ./cpplint.py --extensions=h *.h
