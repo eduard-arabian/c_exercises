@@ -12,10 +12,7 @@ int getIntegerLength(char *number) {
 
     while (ptr != NULL && *(ptr++) != '\0') {}
 
-    if (ptr != NULL)
-        result = (int)(ptr - number - 1);
-    else
-        result = -1;
+    ptr != NULL ? result = (int)(ptr - number - 1) : (result = -1);
 
     return result;
 }
