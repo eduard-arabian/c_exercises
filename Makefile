@@ -1,4 +1,5 @@
 CC = gcc
+CC2 = clang
 CFLAGS  = -std=c99
 CFLAGS += -g
 CFLAGS += -Wall
@@ -7,7 +8,7 @@ CFLAGS += -pedantic
 CFLAGS += -Werror
 CFLAGS += -Wmissing-declarations
 CFLAGS += -DUNITY_SUPPORT_64 -DUNITY_OUTPUT_COLOR
-OPT += -O3 -fcilkplus
+OPT += -O3 -fcilkplus -march=native -ffast-math
 
 ifeq ($(OS), Windows_NT)
 	EXECUTABLE = exe
