@@ -7,6 +7,7 @@ CFLAGS += -pedantic
 CFLAGS += -Werror
 CFLAGS += -Wmissing-declarations
 CFLAGS += -DUNITY_SUPPORT_64 -DUNITY_OUTPUT_COLOR
+OPT += -O3
 
 ifeq ($(OS), Windows_NT)
 	EXECUTABLE = exe
@@ -31,7 +32,7 @@ unity ::
 	@$(CC) $(CFLAGS) -c test-framework/unity.c
 
 matrix ::
-	@$(CC) $(CFLAGS) matrix_multiplication.c -o matrix_multiplication.$(EXECUTABLE)
+	@$(CC) $(OPT) $(CFLAGS) matrix_multiplication.c -o matrix_multiplication.$(EXECUTABLE)
 
 palindrome_number :: integer
 	@$(CC) $(CFLAGS) integer.o palindrome_number.c -o palindrome_number.$(EXECUTABLE)
