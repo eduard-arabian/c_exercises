@@ -7,7 +7,7 @@ CFLAGS += -pedantic
 CFLAGS += -Werror
 CFLAGS += -Wmissing-declarations
 CFLAGS += -DUNITY_SUPPORT_64 -DUNITY_OUTPUT_COLOR
-OPT += -O3
+OPT += -O3 -fcilkplus
 
 ifeq ($(OS), Windows_NT)
 	EXECUTABLE = exe

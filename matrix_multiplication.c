@@ -1,8 +1,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <sys/time.h>
+#include <cilk/cilk.h>
 
-#define n 512
+#define n 4096
 
 double A[n][n];
 double B[n][n];
@@ -22,10 +23,16 @@ int main() {
     struct timeval start, end;
     gettimeofday(&start, NULL);
 
-    for (int i = 0; i < n; ++i)
-        for (int j = 0; j < n; ++j)
-            for (int k = 0; k < n; ++k)
-               C[i][j] += A[i][k] * B[k][j];
+    int s = 256;
+
+    cilk_for (int ih = 0; ih < n; ih += s)
+        cilk_for (int jh = 0; jh < n; jh += s)
+            for (int kh = 0; kh < n; kh += s)
+                for (int il = 0; il < s; ++il)
+                    for (int kl = 0; kl < s; ++kl)
+                        for (int jl = 0; jl < s; ++jl)
+                            C[ih + il][jh + jl]
+                                += A[ih + il][kh + kl] * B[kh + kl][jh + jl];
 
     gettimeofday(&end, NULL);
     printf("%0.6f\n", tdiff(&start, &end));
