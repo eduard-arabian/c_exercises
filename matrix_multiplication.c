@@ -3,7 +3,7 @@
 #include <sys/time.h>
 #include <cilk/cilk.h>
 
-#define n 4096
+#define n 8192
 
 double A[n][n];
 double B[n][n];
@@ -24,15 +24,20 @@ int main() {
     gettimeofday(&start, NULL);
 
     int s = 256;
+    int t = 64;
 
     cilk_for (int ih = 0; ih < n; ih += s)
         cilk_for (int jh = 0; jh < n; jh += s)
             for (int kh = 0; kh < n; kh += s)
-                for (int il = 0; il < s; ++il)
-                    for (int kl = 0; kl < s; ++kl)
-                        for (int jl = 0; jl < s; ++jl)
-                            C[ih + il][jh + jl]
-                                += A[ih + il][kh + kl] * B[kh + kl][jh + jl];
+                for (int im = 0; im < s; im += t)
+                    for (int km = 0; km < s; km += t)
+                        for (int jm = 0; jm < s; jm += t)
+                            for (int il = 0; il < t; ++il)
+                                for (int kl = 0; kl < t; ++kl)
+                                    for (int jl = 0; jl < t; ++jl)
+                                        C[ih + im + il][jh + jm + jl]
+                                            += A[ih + im + il][kh + km + kl]
+                                            * B[kh + km + kl][jh + jm + jl];
 
     gettimeofday(&end, NULL);
     printf("%0.6f\n", tdiff(&start, &end));
@@ -44,4 +49,3 @@ float tdiff(struct timeval *start, struct timeval *end) {
     return (end->tv_sec - start->tv_sec)
         + 1e-6 * (end->tv_usec - start->tv_usec);
 }
-
