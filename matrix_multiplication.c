@@ -27,7 +27,7 @@ int main() {
 
     cilk_for (int ih = 0; ih < n; ih += s)
         cilk_for (int jh = 0; jh < n; jh += s)
-            for (int kh = 0; kh < n; kh += s)
+            cilk_for (int kh = 0; kh < n; kh += s)
                 for (int im = 0; im < s; im += t)
                     for (int km = 0; km < s; km += t)
                         for (int jm = 0; jm < s; jm += t)
