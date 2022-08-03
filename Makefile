@@ -8,6 +8,7 @@ CFLAGS += -pedantic
 CFLAGS += -Werror
 CFLAGS += -Wmissing-declarations
 CFLAGS += -DUNITY_SUPPORT_64 -DUNITY_OUTPUT_COLOR
+CFLAGS += -mavx
 OPT += -O3 -fcilkplus -march=native -ffast-math
 
 ifeq ($(OS), Windows_NT)
@@ -22,7 +23,7 @@ all :: p1 p2
 
 p1 :: integer_checker malloc_with_size void_casting prime_number armstrong_number isotest hamtest gratest
 
-p2 :: test_difference_of_squares test_square_root test_grade_school matrix
+p2 :: test_difference_of_squares test_square_root test_grade_school matrix avx
 
 rebuild :: clean all
 
@@ -34,6 +35,9 @@ unity ::
 
 matrix ::
 	@$(CC) $(OPT) $(CFLAGS) matrix_multiplication.c -o matrix_multiplication.$(EXECUTABLE)
+
+avx ::
+	@$(CC) $(OPT) $(CFLAGS) avx.c -o avx.$(EXECUTABLE)
 
 palindrome_number :: integer
 	@$(CC) $(CFLAGS) integer.o palindrome_number.c -o palindrome_number.$(EXECUTABLE)

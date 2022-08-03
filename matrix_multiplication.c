@@ -1,7 +1,25 @@
+/*
+  Matrix multiplication
+
+  (+) interchange loops
+  (+) optimization flags
+  (+) parallel loops
+  (+) tiling
+  (-) divide-and-conquer
+  (+) compiler vecrorization
+  (-) AVX intrinsic instructions
+
+*/
 #include <stdlib.h>
 #include <stdio.h>
 #include <sys/time.h>
 #include <cilk/cilk.h>
+
+#ifdef __AVX__
+    #include <immintrin.h>
+#else
+    #warning AVX is not available. Code will not compile!
+#endif
 
 #define n 8192
 
