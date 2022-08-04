@@ -9,6 +9,7 @@ CFLAGS += -Werror
 CFLAGS += -Wmissing-declarations
 CFLAGS += -DUNITY_SUPPORT_64 -DUNITY_OUTPUT_COLOR
 CFLAGS += -mavx
+OPT2 += -O3 -march=native -ffast-math
 OPT += -O3 -fcilkplus -march=native -ffast-math
 
 ifeq ($(OS), Windows_NT)
