@@ -24,7 +24,7 @@ all :: p1 p2
 
 p1 :: integer_checker malloc_with_size void_casting prime_number armstrong_number isotest hamtest gratest
 
-p2 :: test_difference_of_squares test_square_root test_grade_school matrix avx
+p2 :: test_difference_of_squares test_square_root test_grade_school matrix avx b2c
 
 rebuild :: clean all
 
@@ -33,6 +33,9 @@ clean ::
 
 unity ::
 	@$(CC) $(CFLAGS) -c test-framework/unity.c
+
+b2d ::
+	@$(CC) $(CFLAGS) b2d.c -o b2d.$(EXECUTABLE) -lm
 
 matrix ::
 	@$(CC) $(OPT) $(CFLAGS) matrix_multiplication.c -o matrix_multiplication.$(EXECUTABLE)
